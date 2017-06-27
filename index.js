@@ -61,6 +61,10 @@ controller.on('direct_mention',function(bot, message) {
   }
 });
 
+controller.on('ambient', (bot, message) => {
+  console.log(message);
+})
+
 controller.hears('#[0-9]+', ['ambient'], (bot, message) => {
   console.log('heard message');
   const re = /\#([0-9]+)/g;
