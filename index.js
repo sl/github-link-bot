@@ -4,9 +4,11 @@ const Botkit = require('botkit');
 var kv = require('beepboop-persist')()
 
 const token = process.env.SLACK_TOKEN;
+const STUDIO_TOKEN = process.env.BOTKIT_STUDIO_TOKEN
 
 var controller = Botkit.slackbot({
   retry: Infinity,
+  studio_token: STUDIO_TOKEN,
   debug: false
 });
 
