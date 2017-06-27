@@ -4,7 +4,9 @@
   "description": "A bot for automatically providing information about issues and pull requests in slack.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js",
+    "watch": "nodemon index.js -w .",
   },
   "repository": {
     "type": "git",
