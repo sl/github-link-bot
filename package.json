@@ -1,0 +1,34 @@
+{
+  "name": "github-link-bot",
+  "version": "1.0.0",
+  "description": "A bot for automatically providing information about issues and pull requests in slack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl/github-link-bot.git"
+  },
+  "keywords": [
+    "github",
+    "issues",
+    "pull",
+    "request",
+    "requests",
+    "issue",
+    "slack",
+    "bot"
+  ],
+  "author": "Sam Lazarus <tyu.sam@gmail.com> (http://github.com/sl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sl/github-link-bot/issues"
+  },
+  "homepage": "https://github.com/sl/github-link-bot#readme",
+  "dependencies": {
+    "beepboop-botkit": "^1.4.1",
+    "beepboop-persist": "^1.0.0",
+    "botkit": "^0.5.4"
+  }
+}
