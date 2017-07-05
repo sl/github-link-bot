@@ -1,8 +1,0 @@
-name: linkbot
-description: A bot for linking github issues automatically.
-avatar: octo.jpg
-config:
-  - name: BOTKIT_STUDIO_TOKEN
-    friendly_name: Botkit Studio Token
-    description: Token associated with your bot in Botkit Studio
-# To learn everything supported in the bot.yml file, visit https://beepboophq.com/docs/article/bot-yml
