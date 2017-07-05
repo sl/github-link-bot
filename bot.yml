@@ -1,5 +1,5 @@
-name: Linkbot
-description: A bot for linking mentioned issues in slack.
+name: linkbot
+description: A bot for linking github issues automatically.
 avatar: octo.jpg
 config:
   - name: BOTKIT_STUDIO_TOKEN
