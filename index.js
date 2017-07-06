@@ -5,6 +5,8 @@ var kv = require('beepboop-persist')()
 
 const token = process.env.SLACK_TOKEN;
 
+const repo = process.env.REPOSITORY_NAME;
+
 var controller = Botkit.slackbot({
   retry: Infinity,
   debug: false
@@ -31,9 +33,10 @@ if (token) {
 
 // when the bot joins a channel, give information about its usage
 controller.on('bot_channel_join', (bot, message) => {
-  bot.reply(message, 'Hi! I\'m Link Bot! To let me know what github repository to link to, type: `@linkbot set-repo <github-repo>`');
+  bot.reply(message, 'Hi! I\'m Link Bot! To link an issue, just type #<issue>!`');
 });
 
+/*
 controller.on('direct_mention',function(bot, message) {
   if (message.text.startsWith('set-repo ') && message.text.length > 9) {
     var name = message.text.substring(9)
@@ -57,11 +60,7 @@ controller.on('direct_mention',function(bot, message) {
     });
 
   }
-});
-
-controller.on('ambient', (bot, message) => {
-  console.log(message);
-})
+});*/
 
 controller.hears('#[0-9]+', ['ambient'], (bot, message) => {
   console.log('heard message');
@@ -76,13 +75,8 @@ controller.hears('#[0-9]+', ['ambient'], (bot, message) => {
   } while (m);
   if (links.length !== 0) {
     // get the repository name
-    kv.get(message.team, (err, val) => {
-      if (err) {
-        bot.reply(message, "I don't know what github repository to look for issues in! Be sure to tell me your repo using `@linkbot set-repo <github-repo>`");
-      }
-      bot.reply(message, links.map((x) => {
-        return '<https://github.com/' + val + '/issues/' + x + '|' + val + ': #' + x + '>';
-      }).join(', '));
+    bot.reply(message, links.map((x) => {
+      return '<https://github.com/' + repo + '/issues/' + x + '|' + val + ': #' + x + '>';
     });
   }
 });
