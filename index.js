@@ -74,10 +74,11 @@ controller.hears('#[0-9]+', ['ambient'], (bot, message) => {
     }
   } while (m);
   if (links.length !== 0) {
+    console.log('replying');
     // get the repository name
     bot.reply(message, links.map((x) => {
-      return '<https://github.com/' + repo + '/issues/' + x + '|' + val + ': #' + x + '>';
-    });
+      return '<https://github.com/' + repo + '/issues/' + x + '|' + repo + ': #' + x + '>';
+    }).join(',\t'));
   }
 });
 
